@@ -1,0 +1,121 @@
+{
+  "dataset": "6 synthetic opportunities; no observed savings",
+  "formula": "48 working weeks; released capacity valued at assumed hourly cost",
+  "opportunities": [
+    {
+      "id": "OP-01",
+      "name": "Manufacturing document assistant",
+      "score": 80.0,
+      "components": {
+        "value": 28.0,
+        "feasibility": 20.0,
+        "readiness": 16.0,
+        "risk": 16.0
+      },
+      "gross_annual_capacity_value": 26880.0,
+      "net_annual_capacity_value": 22080.0,
+      "first_year_net_value": 10080.0,
+      "payback_months": 6.5,
+      "pilot_eligible": true,
+      "blockers": [],
+      "adoption_assumption": 0.6
+    },
+    {
+      "id": "OP-02",
+      "name": "Quality deviation summary draft",
+      "score": 67.0,
+      "components": {
+        "value": 28.0,
+        "feasibility": 15.0,
+        "readiness": 12.0,
+        "risk": 12.0
+      },
+      "gross_annual_capacity_value": 14515.2,
+      "net_annual_capacity_value": 8515.2,
+      "first_year_net_value": -6484.8,
+      "payback_months": 21.1,
+      "pilot_eligible": true,
+      "blockers": [],
+      "adoption_assumption": 0.6
+    },
+    {
+      "id": "OP-03",
+      "name": "Autonomous robot parameter adjustment",
+      "score": 57.0,
+      "components": {
+        "value": 35.0,
+        "feasibility": 10.0,
+        "readiness": 8.0,
+        "risk": 4.0
+      },
+      "gross_annual_capacity_value": 17280.0,
+      "net_annual_capacity_value": -720.0,
+      "first_year_net_value": -85720.0,
+      "payback_months": null,
+      "pilot_eligible": false,
+      "blockers": [
+        "Risk review required",
+        "Data owner approval missing",
+        "Sponsor approval missing",
+        "Implementation readiness below threshold"
+      ],
+      "adoption_assumption": 0.6
+    },
+    {
+      "id": "OP-04",
+      "name": "Supplier email routing",
+      "score": 78.0,
+      "components": {
+        "value": 21.0,
+        "feasibility": 25.0,
+        "readiness": 16.0,
+        "risk": 16.0
+      },
+      "gross_annual_capacity_value": 13824.0,
+      "net_annual_capacity_value": 11824.0,
+      "first_year_net_value": 5824.0,
+      "payback_months": 6.1,
+      "pilot_eligible": true,
+      "blockers": [],
+      "adoption_assumption": 0.6
+    },
+    {
+      "id": "OP-05",
+      "name": "Shift handover draft",
+      "score": 72.0,
+      "components": {
+        "value": 28.0,
+        "feasibility": 20.0,
+        "readiness": 12.0,
+        "risk": 12.0
+      },
+      "gross_annual_capacity_value": 13440.0,
+      "net_annual_capacity_value": 9440.0,
+      "first_year_net_value": -560.0,
+      "payback_months": 12.7,
+      "pilot_eligible": false,
+      "blockers": [
+        "Data owner approval missing"
+      ],
+      "adoption_assumption": 0.6
+    },
+    {
+      "id": "OP-06",
+      "name": "Maintenance request classification",
+      "score": 69.0,
+      "components": {
+        "value": 21.0,
+        "feasibility": 20.0,
+        "readiness": 16.0,
+        "risk": 12.0
+      },
+      "gross_annual_capacity_value": 10944.0,
+      "net_annual_capacity_value": 7944.0,
+      "first_year_net_value": -1056.0,
+      "payback_months": 13.6,
+      "pilot_eligible": true,
+      "blockers": [],
+      "adoption_assumption": 0.6
+    }
+  ]
+}
