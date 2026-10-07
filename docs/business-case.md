@@ -1,5 +1,7 @@
 # Discovery, process and business case
 
+[Documentation index](README.md)
+
 ## Current process (fictional)
 
 Supervisor receives proposal → analyst requests missing details → IT checks data access → engineering assesses feasibility → sponsor decides whether to fund a pilot. Without shared criteria, promising proposals and risky proposals can look similarly attractive.

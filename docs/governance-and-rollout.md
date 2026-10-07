@@ -1,5 +1,7 @@
 # Governance, rollout and ownership
 
+[Documentation index](README.md)
+
 Borrowed NIST functions guide this small prototype; no compliance claim is made.
 
 | Function | Decision evidence | Accountable persona |

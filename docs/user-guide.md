@@ -1,5 +1,7 @@
 # User guide and interview walkthrough
 
+[Documentation index](README.md)
+
 Run `python app.py`; select a proposal and inspect all scenario cards. Value is estimated released capacity, not booked savings. Record measurements only after defining a common pilot period and participant eligibility. Move stages in order; failures explain the missing evidence or gate. A fresh `--db` path resets the scenario without deleting other data.
 
 ### Interview narrative

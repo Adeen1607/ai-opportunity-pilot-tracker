@@ -1,5 +1,7 @@
 # Pilot coordination and UAT
 
+[Documentation index](README.md)
+
 ## Pilot charter
 
 Four-week proposed pilot in one fictional facility, focused on finding approved documents. Analyst coordinates scope and actions; operations owns acceptance; IT owns access and deployment; quality owns source accuracy; engineering confirms excluded machine-control scope. No participant has actually been recruited.

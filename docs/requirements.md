@@ -1,5 +1,7 @@
 # Business requirements and traceability
 
+[Documentation index](README.md)
+
 ## Scenario and scope
 
 A fictional manufacturer receives AI proposals through scattered emails. The analyst needs a consistent assessment and a defensible pilot recommendation. The prototype covers assessment and pilot evidence. It excludes autonomous equipment control, employee assessment, real procurement and production releases.

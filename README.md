@@ -1,68 +1,57 @@
 # AI Opportunity & Pilot Tracker
 
-**From manufacturing business problem to a reviewable AI pilot decision.**
+**A reviewable path from manufacturing AI proposal to pilot decision.**
 
-An independent systems-analysis portfolio prototype by Mohammed Adeen Shaik. It assesses six synthetic manufacturing AI opportunities, exposes cost and adoption assumptions, and records pilot evidence and stage decisions in SQLite.
+[![Verify prototype](https://github.com/Adeen1607/ai-opportunity-pilot-tracker/actions/workflows/checks.yml/badge.svg)](https://github.com/Adeen1607/ai-opportunity-pilot-tracker/actions/workflows/checks.yml)
 
+This Python/SQLite prototype brings opportunity assessment, benefit assumptions, eligibility gates and pilot evidence into one local interface. Six fictional manufacturing proposals show how an analyst can recommend a scoped pilot while keeping ownership and risk visible.
 
-## Why this project matters
+## Quick start
 
-AI opportunity selection requires more than a model demo. This project makes the business case, accountable owner, risk gate, test evidence and adoption measures visible together. The application itself is a deterministic decision-support tool; it does not use a model to invent requirements or choose approvals.
-
-## Run locally
-
-Requires Python 3.10+; no package installation or API key.
+Requires Python 3.10+. No packages or API key are needed.
 
 ```bash
+git clone https://github.com/Adeen1607/ai-opportunity-pilot-tracker.git
+cd ai-opportunity-pilot-tracker
 python app.py
 ```
 
-Open http://127.0.0.1:8051. Optional isolated database: `python app.py --port 8051 --db demo.db`.
+Open http://127.0.0.1:8051. See [Getting started](docs/getting-started.md) for Windows/macOS/Linux invocation options and isolated databases.
+
+## What the application does
+
+| Capability | Evidence in the prototype |
+|---|---|
+| Opportunity assessment | Weighted value, feasibility, readiness and inverse-risk score |
+| Business case | Low/base/high adoption scenarios; cost and payback assumptions |
+| Pilot eligibility | Independent risk, readiness and simulated approval gates |
+| Pilot acceptance | Time reduction, active/eligible usage, satisfaction and incidents |
+| Decision tracking | Stage transition validation and recorded measurement/decision events |
+
+This application uses deterministic rules; it does not ask a model to approve proposals. Opportunity records are seeded from JSON. The UI records pilot measurements and stage changes; it does not edit proposal definitions or approvals.
+
+## Baseline evidence
+
+Four of the six synthetic proposals are eligible for pilot review. The document assistant scores 80/100. Under its base assumptions, the model estimates CAD 22,080 annual net capacity value and 6.5-month payback. These figures value released staff time; they are not measured cash savings.
+
+**14 automated tests pass**, covering decision rules and real localhost HTTP workflows. [Portfolio results](reports/portfolio-results.json) are reproducible:
 
 ```bash
 python -m unittest discover -s tests -v
 python evaluate.py
 ```
 
-## Demonstrate in five minutes
+## Documentation
 
-1. Compare the six ranked opportunities. The document assistant scores 80/100.
-2. Inspect low, base and high adoption business cases. Figures are assumptions, not measured savings.
-3. Try moving autonomous robot adjustment through Scoped to Pilot. Risk, readiness and missing approvals block it.
-4. Move the document assistant from Discovery to Scoped to Pilot.
-5. Enter a **simulated** baseline of 10 minutes, assisted time of 7 minutes, 40 eligible users, 28 active users, satisfaction 4.2 and zero critical incidents.
-6. Move to Review, then Approved. The audit trail records decisions. Approval here is a demo state, not a real sponsor authorization.
+Start with the [Documentation index](docs/README.md), or choose a route:
 
-## Features and evidence
+- **Run and demonstrate:** [Setup](docs/getting-started.md), [User guide](docs/user-guide.md), [Troubleshooting](docs/troubleshooting.md).
+- **Understand the implementation:** [Architecture](docs/architecture.md), [Data dictionary](docs/data-dictionary.md), [API reference](docs/api-reference.md), [Decision rules](docs/decision-model.md).
+- **Review the analyst work:** [Requirements](docs/requirements.md), [Business case](docs/business-case.md), [Pilot/UAT](docs/pilot-and-uat.md), [Governance and rollout](docs/governance-and-rollout.md).
+- **Assess evidence:** [Testing and evaluation](docs/testing-and-evaluation.md), [Build validation](reports/validation.md), [Research and role fit](docs/research-and-role-fit.md).
 
-- Weighted prioritization: value 35%, feasibility 25%, readiness 20%, inverse risk 20%.
-- Independent gates prevent a good score overriding missing data/sponsor approval, low readiness or high risk.
-- Annual capacity value, running cost, first-year net value, payback and adoption scenarios.
-- Pilot time reduction, usage adoption, satisfaction and critical-incident acceptance.
-- Stage validation and append-only application event records.
-- 14 automated tests cover financial calculations, invalid inputs, decision gates and pilot acceptance.
+## Scope and next steps
 
-The six scenarios produce four pilot-eligible candidates. The document assistant's base assumption yields CAD 22,080 annual net **capacity value**, not cash savings, and 6.5-month modeled payback. See [reproducible results](reports/portfolio-results.json).
+Independent portfolio work by Mohammed Adeen Shaik, using synthetic data and simulated stakeholders. There is no Linamar affiliation, real sponsor approval or production deployment. Local approval flags and stage labels are demonstration records. SQLite audit events are not tamper-proof, and changing pilot measurements does not automatically invalidate an already-approved stage.
 
-## Analyst deliverables
-
-- [Business requirements and traceability](docs/requirements.md)
-- [Discovery, business case and process map](docs/business-case.md)
-- [Pilot plan and UAT](docs/pilot-and-uat.md)
-- [Governance and rollout](docs/governance-and-rollout.md)
-- [User guide and interview walkthrough](docs/user-guide.md)
-- [Research and role mapping](docs/research-and-role-fit.md)
-
-## Architecture
-
-Browser interface → localhost JSON API → decision functions → SQLite opportunity, pilot and event tables. The initial records are seeded once from `data/opportunities.json`. `evaluate.py` reads fixtures directly and does not modify the application database.
-
-## Boundaries and next work
-
-Local single-user demonstration; no authentication, real approvals, tamper-proof audit storage or multi-facility deployment. Owners and approvals are fictional. Opportunity authoring currently requires editing seed JSON and using a fresh database; the UI only records stage decisions and pilot evidence. Add authenticated sponsor sign-off, editable requirements records, cohort/time-period definitions and benefit validation before enterprise use. The dashboard uses aggregate pilot entries, not controlled experimental observations.
-
-## Resume wording
-
-“Built a Python/SQLite AI opportunity and pilot tracker for six synthetic manufacturing use cases, implementing transparent prioritization, cost-benefit scenarios, risk gates, pilot acceptance metrics and decision audit trails.”
-
-MIT licensed. This is independent portfolio work, not employment experience.
+Before enterprise adoption, validate task volumes and assumptions, add authenticated approvals and evidence freshness, and compare AI use cases against simpler alternatives. See [Security](SECURITY.md), [Contributing](CONTRIBUTING.md) and the [MIT license](LICENSE).
