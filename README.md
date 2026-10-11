@@ -55,3 +55,35 @@ Start with the [Documentation index](docs/README.md), or choose a route:
 Independent portfolio work by Mohammed Adeen Shaik, using synthetic data and simulated stakeholders. There is no Linamar affiliation, real sponsor approval or production deployment. Local approval flags and stage labels are demonstration records. SQLite audit events are not tamper-proof, and changing pilot measurements does not automatically invalidate an already-approved stage.
 
 Before enterprise adoption, validate task volumes and assumptions, add authenticated approvals and evidence freshness, and compare AI use cases against simpler alternatives. See [Security](SECURITY.md), [Contributing](CONTRIBUTING.md) and the [MIT license](LICENSE).
+
+
+## Rebuild the reading edition
+
+```bash
+python -m pip install -r requirements-research.txt
+python scripts/build_research_site.py
+```
+
+This renders saved notebook outputs without rerunning model training or external APIs. To refresh findings, run the analysis commands above first, update `reports/research-findings.md`, and rebuild.
+
+<!-- research-edition:start -->
+## Research edition
+
+[Research report and final visual results](research/report.md) · [Browser-ready notebook catalogue](research/notebooks.html)
+
+Fresh deterministic evaluation on 11 October 2026: **4/6 fictional proposals** meet the configured pilot gates. Scenario benefit values use assumed adoption, 48 working weeks and an assumed hourly value of released capacity. They are **not observed savings**.
+
+| name | pilot_eligible | base_net_annual_benefit |
+|---|---|---|
+| Manufacturing document assistant | True | see JSON |
+| Quality deviation summary draft | True | see JSON |
+| Autonomous robot parameter adjustment | False | see JSON |
+| Supplier email routing | True | see JSON |
+| Shift handover draft | False | see JSON |
+| Maintenance request classification | True | see JSON |
+
+
+
+The `research/` folder contains a professional static reading edition. The Pages workflow deploys it after GitHub Pages is enabled with **GitHub Actions** as the publishing source. Intended URL: `https://adeen1607.github.io/ai-opportunity-pilot-tracker/`. Deployment status must be checked in Actions before treating that address as live.
+
+<!-- research-edition:end -->

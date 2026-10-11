@@ -1,0 +1,15 @@
+{
+  "repository": "Adeen1607/ai-opportunity-pilot-tracker",
+  "review_date": "2026-10-11",
+  "evidence_note": "Fresh deterministic evaluation on 11 October 2026: **4/6 fictional proposals** meet the configured pilot gates. Scenario benefit values use assumed adoption, 48 working weeks and an assumed hourly value of released capacity. They are **not observed savings**.\n\n| name | pilot_eligible | base_net_annual_benefit |\n|---|---|---|\n| Manufacturing document assistant | True | see JSON |\n| Quality deviation summary draft | True | see JSON |\n| Autonomous robot parameter adjustment | False | see JSON |\n| Supplier email routing | True | see JSON |\n| Shift handover draft | False | see JSON |\n| Maintenance request classification | True | see JSON |\n\n",
+  "inputs": [
+    {
+      "path": "data/opportunities.json",
+      "sha256": "e7011c966d456359541e7486dadd8170923cd41b425ecd1f0043bc3a771805aa"
+    },
+    {
+      "path": "reports/portfolio-results.json",
+      "sha256": "453aafb662374dcb05ba3d398921e2967fe06493f5295b87e8e47e5364217e13"
+    }
+  ]
+}

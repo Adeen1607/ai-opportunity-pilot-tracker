@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manufacturing AI Pilot Decision Study</title><link rel="stylesheet" href="style.css"></head><body><header><div><p class="meta">Mohammed Adeen Shaik · Research and coursework</p><h1>Manufacturing AI Pilot Decision Study</h1><nav><a href="index.html">Overview</a><a href="report.html">Research report</a><a href="notebooks.html">Explained notebooks</a><a href="https://github.com/Adeen1607/ai-opportunity-pilot-tracker">Source repository</a></nav></div></header><main><h1 id="manufacturing-ai-pilot-decision-study">Manufacturing AI Pilot Decision Study</h1>
+<p><strong>Author:</strong> Mohammed Adeen Shaik<br />
+<strong>Review date:</strong> 11 October 2026</p>
+<h2 id="research-question">Research question</h2>
+<p>How do assumed value, eligibility gates and pilot evidence affect six fictional opportunity decisions?</p>
+<h2 id="data-and-provenance">Data and provenance</h2>
+<p>Six developer-authored synthetic proposals in data/opportunities.json.</p>
+<p>Source materials are linked from the repository README. Input fingerprints are recorded in <a href="evidence.json">the evidence manifest</a> so a reader can identify the exact committed artifacts used in this review.</p>
+<h2 id="method-and-analytical-rationale">Method and analytical rationale</h2>
+<p>evaluate.py applies the implemented deterministic scoring and assessment rules without changing the application database. Benefit calculations use 48 working weeks and assumed adoption.</p>
+<h2 id="findings-and-interpretation">Findings and interpretation</h2>
+<p>Fresh deterministic evaluation on 11 October 2026: <strong>4/6 fictional proposals</strong> meet the configured pilot gates. Scenario benefit values use assumed adoption, 48 working weeks and an assumed hourly value of released capacity. They are <strong>not observed savings</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>pilot_eligible</th>
+<th>base_net_annual_benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manufacturing document assistant</td>
+<td>True</td>
+<td>see JSON</td>
+</tr>
+<tr>
+<td>Quality deviation summary draft</td>
+<td>True</td>
+<td>see JSON</td>
+</tr>
+<tr>
+<td>Autonomous robot parameter adjustment</td>
+<td>False</td>
+<td>see JSON</td>
+</tr>
+<tr>
+<td>Supplier email routing</td>
+<td>True</td>
+<td>see JSON</td>
+</tr>
+<tr>
+<td>Shift handover draft</td>
+<td>False</td>
+<td>see JSON</td>
+</tr>
+<tr>
+<td>Maintenance request classification</td>
+<td>True</td>
+<td>see JSON</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limitations">Limitations</h2>
+<p>Released capacity is not observed cash savings. Scores are policy choices and do not prove a proposal will succeed. Synthetic approvals and role simulation are not enterprise authorization.</p>
+<h2 id="reproduction">Reproduction</h2>
+<p>Use the setup commands and input contract in the <a href="https://github.com/Adeen1607/ai-opportunity-pilot-tracker#readme">repository README</a>. Open the <a href="notebooks.html">notebook catalogue</a> for annotated code and saved outputs. Keep raw records and model binaries local; public reports contain aggregate results or source-embedded figures.</p>
+<h2 id="final-visual-results">Final visual results</h2>
+<p><img alt="Reproduced aggregate figure: scenario-scores.png" src="figures/scenario-scores.png" /></p>
+<p><em>Reproduced aggregate figure: scenario-scores.png.</em></p><footer>Evidence dates and limitations are documented in the report. Static pages display saved outputs; they do not execute Python, R, Streamlit or API calls.</footer></main></body></html>
