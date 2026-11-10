@@ -28,6 +28,29 @@ class HttpTests(unittest.TestCase):
     def test_unknown_route(self):
         with self.assertRaises(urllib.error.HTTPError) as context: self.request('/unknown')
         self.assertEqual(context.exception.code,404)
+    def test_unknown_post_route_returns_404_even_with_invalid_body(self):
+        request = urllib.request.Request(
+            self.url + '/api/does-not-exist',
+            data=b'{not valid json',
+            headers={'Content-Type': 'application/json'},
+            method='POST',
+        )
+        with self.assertRaises(urllib.error.HTTPError) as context:
+            urllib.request.urlopen(request, timeout=5)
+        self.assertEqual(context.exception.code, 404)
+        self.assertEqual(json.load(context.exception), {'error': 'Not found'})
+
+    def test_known_post_route_rejects_invalid_json(self):
+        request = urllib.request.Request(
+            self.url + '/api/stage',
+            data=b'{not valid json',
+            headers={'Content-Type': 'application/json'},
+            method='POST',
+        )
+        with self.assertRaises(urllib.error.HTTPError) as context:
+            urllib.request.urlopen(request, timeout=5)
+        self.assertEqual(context.exception.code, 400)
+
     def test_api_pilot_flow_and_rejection(self):
         self.assertEqual(len(self.request('/api/portfolio')),6)
         self.request('/api/stage',{'id':'OP-01','stage':'Scoped'})
