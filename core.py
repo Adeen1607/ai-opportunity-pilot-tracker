@@ -17,7 +17,7 @@ def validate(item):
         value = item[field]
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
             raise ValueError(f'{field} must be finite and non-negative')
-    if not 0 <= item['adoption'] <= 1 or not math.isfinite(item['adoption']):
+    if isinstance(item['adoption'], bool) or not isinstance(item['adoption'], (int, float)) or not math.isfinite(item['adoption']) or not 0 <= item['adoption'] <= 1:
         raise ValueError('adoption must be between 0 and 1')
     if not item.get('owner'):
         raise ValueError('Accountable owner required')
@@ -25,7 +25,7 @@ def validate(item):
 def assess(item, adoption=None):
     validate(item)
     adoption = item['adoption'] if adoption is None else adoption
-    if not isinstance(adoption, (int, float)) or not math.isfinite(adoption) or not 0 <= adoption <= 1:
+    if isinstance(adoption, bool) or not isinstance(adoption, (int, float)) or not math.isfinite(adoption) or not 0 <= adoption <= 1:
         raise ValueError('adoption must be between 0 and 1')
     components = {k: round((6-item[k] if k == 'risk' else item[k])*w*20, 2) for k, w in WEIGHTS.items()}
     gross = item['users']*item['uses_per_week']*item['minutes_saved']/60*item['hourly_cost']*48*adoption
