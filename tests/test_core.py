@@ -18,6 +18,16 @@ class PortfolioTests(unittest.TestCase):
     def test_invalid_scores_and_costs_rejected(self):
         for field,value in [('risk',6),('value',float('nan')),('users',-1),('implementation_cost',float('inf'))]:
             with self.assertRaises(ValueError): assess({**self.item,field:value})
+    def test_invalid_adoption_inputs_rejected(self):
+        for value in (True, False, None, "0.5", float('nan'), float('inf'), -0.1, 1.1):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    assess({**self.item, 'adoption': value})
+                with self.assertRaises(ValueError):
+                    assess(self.item, adoption=value)
+    def test_adoption_boundaries_are_valid(self):
+        self.assertEqual(assess(self.item, adoption=0)['adoption_assumption'], 0)
+        self.assertEqual(assess(self.item, adoption=1)['adoption_assumption'], 1)
     def test_high_value_cannot_override_safety_gate(self):
         transition(self.db,'OP-03','Scoped')
         with self.assertRaises(ValueError): transition(self.db,'OP-03','Pilot')
