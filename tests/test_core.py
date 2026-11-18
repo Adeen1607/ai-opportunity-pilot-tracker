@@ -42,6 +42,36 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(self.db.execute('SELECT COUNT(*) FROM events').fetchone()[0],5)
     def test_invalid_counts(self):
         with self.assertRaises(ValueError): record_pilot(self.db,'OP-01',dict(baseline_minutes=10,assisted_minutes=7,eligible_users=40,active_users=41,satisfaction=4.2,incidents=0))
+    def test_invalid_pilot_metrics_do_not_write_evidence(self):
+        valid = dict(baseline_minutes=10, assisted_minutes=7, eligible_users=40,
+                     active_users=28, satisfaction=4.2, incidents=0)
+        invalid = [
+            ('baseline_minutes', 0),
+            ('assisted_minutes', -1),
+            ('eligible_users', 0),
+            ('eligible_users', 2.5),
+            ('active_users', -1),
+            ('active_users', 41),
+            ('active_users', 2.5),
+            ('satisfaction', 0.9),
+            ('satisfaction', 5.1),
+            ('incidents', -1),
+            ('incidents', 1.5),
+            ('incidents', True),
+            ('baseline_minutes', float('nan')),
+            ('assisted_minutes', float('inf')),
+        ]
+        for field, value in invalid:
+            with self.subTest(field=field, value=value):
+                with self.assertRaises(ValueError):
+                    record_pilot(self.db, 'OP-01', {**valid, field: value})
+                self.assertEqual(self.db.execute(
+                    "SELECT COUNT(*) FROM pilot_results WHERE opportunity_id='OP-01'"
+                ).fetchone()[0], 0)
+                self.assertEqual(self.db.execute(
+                    "SELECT COUNT(*) FROM events WHERE opportunity_id='OP-01'"
+                ).fetchone()[0], 0)
+
     def test_rank_and_seed_idempotent(self):
         seed(self.db); rows=portfolio(self.db)
         self.assertEqual(len(rows),6)
